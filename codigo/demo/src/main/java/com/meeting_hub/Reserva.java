@@ -17,4 +17,6 @@ public class Reserva {
         _DESCONTO_CORPORATIVO=0.10;
     } 
 
+    
+
 }
