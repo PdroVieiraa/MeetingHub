@@ -16,6 +16,7 @@ public abstract class Sala {
 // Metodos Abstratos
 public abstract double getCustoHora();
 public abstract double getPercentualReembolso();
+
  
 public boolean verificarDisponibilidade(LocalDateTime dataInicio, LocalDateTime dataFim) {
     // Verifica se a sala está disponível entre dataInicio e dataFim

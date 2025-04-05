@@ -4,9 +4,11 @@ import com.meeting_hub.Cliente;
 
 public class Corporativo extends Cliente {
 
-    public double desconto(){
-        double valorDescontado = 0.0;
-        return valorDescontado;
+    private String cnpj;
+
+
+    public double AplicarDesconto(){
+        return 0.10;
     }
 
 }
