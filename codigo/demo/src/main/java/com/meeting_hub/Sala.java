@@ -32,5 +32,13 @@ public boolean verificarDisponibilidade(LocalDateTime dataInicio, LocalDateTime 
     public List<String> listarRecursos() {
         return new ArrayList<>(recursos); // Retorna cópia para evitar alterações externas
     }
+    public double getCapacidade() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCapacidade'");
+    }
+    public void reservar(LocalDateTime dataInicio, LocalDateTime dataFim) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'reservar'");
+    }
 }
 
