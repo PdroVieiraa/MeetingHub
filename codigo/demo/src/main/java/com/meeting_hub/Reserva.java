@@ -81,6 +81,19 @@ public class Reserva {
     return true; 
 }
 
+    private double retornarValorReembolso(){
+        double reembolso = 0.0;
+        if (sala instanceof Premium) {
+            reembolso =  (calcularCustoSala() * sala.getPercentualReembolso());
+        }
+        if (sala instanceof Vip) {
+            reembolso =  (calcularCustoSala() * sala.getPercentualReembolso());
+        }
+        if (sala instanceof Standard) {
+            reembolso =  (calcularCustoSala() * sala.getPercentualReembolso());
+        }
+        return reembolso;
+    }
     //Principais Funçoes
     public boolean efetuarReserva(List<Reserva> todasReservas){
         if (!verificarDisponibilidade(todasReservas)) {
@@ -96,7 +109,7 @@ public class Reserva {
         int index = 0;
         for (Reserva reserva : todasAsReservas) {
             if (reserva.getId()==this.id) {
-                System.out.println("Reserva cancelada com sucesso!");
+                System.out.println("Reserva cancelada com sucesso, valor reembolsado: "+retornarValorReembolso());
                 todasAsReservas.remove(index);
                 return true;
             }
