@@ -3,11 +3,9 @@ package com.meeting_hub.Salas;
 import com.meeting_hub.Sala;
 
 public class Standard extends Sala{
-    public Standard(String codigo, int capacidade) {
-        super(codigo, capacidade);
+    public Standard(String codigoAtual, int capacidade) {
+        super(capacidade, codigoAtual);
         // Recursos padrão
-        addRecurso("Projetor");
-        addRecurso("Ar-condicionado");
     }
 
     @Override

@@ -3,8 +3,8 @@ package com.meeting_hub.Salas;
 import com.meeting_hub.Sala;
 
 public class Vip extends Sala{
-    public Vip(String codigo, int capacidade) {
-        super(codigo, capacidade);
+    public Vip(String codigoAtual, int capacidade) {
+        super(capacidade, codigoAtual);
         // Recursos padrão
         addRecurso("Projetor");
         addRecurso("Ar-condicionado");

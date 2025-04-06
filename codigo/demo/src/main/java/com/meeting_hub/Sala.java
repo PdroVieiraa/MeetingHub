@@ -1,27 +1,22 @@
 package com.meeting_hub;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
-import java.util.List;
+
 
 public abstract class Sala {
- private String codigo;
+ private String codigoAtual = "SALA_A101";
  private int capacidade;
  private ArrayList<String> recursos = new ArrayList<>();    
 
- public Sala(String codigo, int capacidade) {
-    this.codigo = codigo;
+ public Sala( int capacidade, String codigoAtual) {
+    this.codigoAtual = codigoAtual;
     this.capacidade = capacidade;
 }
 // Metodos Abstratos
 public abstract double getCustoHora();
 public abstract double getPercentualReembolso();
 
- 
-public boolean verificarDisponibilidade(LocalDateTime dataInicio, LocalDateTime dataFim) {
-    // Verifica se a sala está disponível entre dataInicio e dataFim
-        return true; 
-    }
 
     // Adiciona recurso à sala
     public void addRecurso(String recurso) {
@@ -29,9 +24,28 @@ public boolean verificarDisponibilidade(LocalDateTime dataInicio, LocalDateTime 
     }
 
     // Retorna lista de recursos
-    public List<String> listarRecursos() {
+    public ArrayList<String> listarRecursos() {
         return new ArrayList<>(recursos); // Retorna cópia para evitar alterações externas
     }
     
+    public static String gerarProximoCodigo(String codigoAtual) {
+        String prefixo = codigoAtual.substring(0, 5); 
+        char letra = codigoAtual.charAt(5); 
+        int numero = Integer.parseInt(codigoAtual.substring(6)); 
+    
+        numero++;
+    
+        if (numero > 999) {
+            numero = 100;
+            letra++;
+    
+            if (letra > 'Z') {
+                throw new IllegalStateException("Limite de códigos atingido");
+            }
+        }
+    
+        return String.format("%s%c%03d", prefixo, letra, numero);
+    }
+   
 }
 
