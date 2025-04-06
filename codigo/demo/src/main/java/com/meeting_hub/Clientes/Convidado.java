@@ -1,9 +1,0 @@
-package com.meeting_hub.Clientes;
-
-
-
-import com.meeting_hub.Cliente;
-
-public class Convidado extends Cliente{
-        
-}

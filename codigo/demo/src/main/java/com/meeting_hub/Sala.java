@@ -13,6 +13,10 @@ public abstract class Sala {
     this.codigoAtual = codigoAtual;
     this.capacidade = capacidade;
 }
+
+public String getCodigoAtual(){
+    return codigoAtual;
+}
 // Metodos Abstratos
 public abstract double getCustoHora();
 public abstract double getPercentualReembolso();
@@ -47,5 +51,6 @@ public abstract double getPercentualReembolso();
         return String.format("%s%c%03d", prefixo, letra, numero);
     }
    
+
 }
 
