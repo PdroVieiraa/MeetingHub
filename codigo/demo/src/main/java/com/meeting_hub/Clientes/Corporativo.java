@@ -6,7 +6,4 @@ public class Corporativo extends Cliente {
 
     private String cnpj;
 
-
-    
-
 }
