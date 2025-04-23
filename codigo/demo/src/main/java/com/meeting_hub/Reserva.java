@@ -40,6 +40,9 @@ public class Reserva {
     public int getId(){
         return id;
     }
+    public Cliente getCliente() {
+        return cliente;
+    }
 
     //Funçoes auxilires da classe
     private long calcularDuracao(){
@@ -62,8 +65,15 @@ public class Reserva {
     }
 
     public double calcularCustoTotal() {
-       return (cliente instanceof Corporativo)? (calcularCustoSala()*DESCONTO_CORPORATIVO) : calcularCustoSala();
-   }
+        // Calcula a duração da reserva em horas
+        long horas = java.time.Duration.between(dataInicio, dataFim).toHours();
+
+        // Obtém o custo por hora da sala associada
+        double custoHora = sala.getCustoHora();
+
+        // Calcula o custo total
+        return horas * custoHora;
+    }
 
     private boolean horasConflitam(LocalDateTime inicio2, LocalDateTime fim2){
         return (this.dataInicio.isBefore(inicio2)  || this.dataFim.isAfter(fim2));

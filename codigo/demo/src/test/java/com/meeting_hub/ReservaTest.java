@@ -1,5 +1,8 @@
 package com.meeting_hub;
 
+import com.meeting_hub.Salas.Premium;
+import com.meeting_hub.Reserva;
+import com.meeting_hub.Cliente;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -83,5 +86,22 @@ public class ReservaTest {
         reserva.efetuarReserva(new ArrayList<>());
         reserva.cancelarReserva(1); // imprime o valor do reembolso
         assertTrue(true); // Apenas para verificar execução
+    }
+
+    @Test
+    public void testCalcularCustoTotal() {
+        // Arrange
+        Premium sala = new Premium("SALA_A101", 10); // Sala Premium com custo de 57.5 por hora
+        Cliente cliente = new Cliente(); // Cliente genérico
+        LocalDateTime inicio = LocalDateTime.of(2025, 4, 22, 10, 0); // Início da reserva
+        LocalDateTime fim = LocalDateTime.of(2025, 4, 22, 14, 0); // Fim da reserva (4 horas)
+
+        Reserva reserva = new Reserva(1, inicio, fim, cliente, sala);
+
+        // Act
+        double custoTotal = reserva.calcularCustoTotal();
+
+        // Assert
+        assertEquals(230.0, custoTotal, 0.01); // Verifica se o custo total é 230.0
     }
 }

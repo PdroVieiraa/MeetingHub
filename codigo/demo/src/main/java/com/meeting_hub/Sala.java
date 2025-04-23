@@ -9,7 +9,7 @@ public abstract class Sala {
  private int capacidade;
  private ArrayList<String> recursos = new ArrayList<>();    
 
- public Sala( int capacidade, String codigoAtual) {
+ public Sala(int capacidade, String codigoAtual) {
     this.codigoAtual = codigoAtual;
     this.capacidade = capacidade;
 }
@@ -17,6 +17,11 @@ public abstract class Sala {
 public String getCodigoAtual(){
     return codigoAtual;
 }
+
+public int getCapacidade() {
+    return capacidade;
+}
+
 // Metodos Abstratos
 public abstract double getCustoHora();
 public abstract double getPercentualReembolso();
@@ -50,7 +55,21 @@ public abstract double getPercentualReembolso();
     
         return String.format("%s%c%03d", prefixo, letra, numero);
     }
-   
 
+    public static void main(String[] args) {
+        Sala sala = new Sala(50, "SALA_A101") {
+            @Override
+            public double getCustoHora() {
+                return 100.0;
+            }
+
+            @Override
+            public double getPercentualReembolso() {
+                return 0.5;
+            }
+        };
+
+        System.out.println("Codigo: " + sala.getCodigoAtual() + " | Capacidade: " + sala.getCapacidade() + " | Recursos: " + sala.listarRecursos());
+    }
 }
 

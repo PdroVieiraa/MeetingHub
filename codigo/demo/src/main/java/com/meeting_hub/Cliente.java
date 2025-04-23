@@ -1,13 +1,13 @@
 package com.meeting_hub;
 
-public abstract class Cliente {
-    private Long id;
-    private String nome;
-    private String telefone;
+public class Cliente {
+    protected Long id;
+    protected String nome; // Alterado de private para protected
+    protected String telefone;
 
     public String getNome() {
         return nome;
     }
-    
 
+    // Construtor, getters e setters, se necessário
 }
