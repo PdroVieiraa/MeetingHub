@@ -14,13 +14,14 @@ import com.meeting_hub.Salas.Vip;
 public class Reserva {
     private int id;
     private double custoTotal;
+    private double reembolso;
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
     private static final double DESCONTO_CORPORATIVO;
     private Cliente cliente;
     private Sala sala;
     private static List<Reserva> todasAsReservas = new ArrayList<>();
-    
+
     static{
         DESCONTO_CORPORATIVO=0.10;
     } 
@@ -30,19 +31,52 @@ public class Reserva {
         this.dataFim = dataFim;
         this.cliente = cliente;
         this.sala = sala;
+        this.custoTotal = calcularCustoTotal();
+        this.reembolso = retornarValorReembolso();
     }
+
+    public Reserva(int id, LocalDateTime dataInicio, LocalDateTime dataFim, Cliente cliente, Sala sala, double custoTotal, double reembolso) {
+        this.id = id;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.cliente = cliente;
+        this.sala = sala;
+        this.custoTotal = custoTotal;
+        this.reembolso = reembolso;
+    }
+    
     
 
     //GET e SETT NECESSARIOS
-    public Sala getSala(){
-        return sala;
-    }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
+    
+    public LocalDateTime getDataInicio() {
+        return dataInicio;
+    }
+    
+    public LocalDateTime getDataFim() {
+        return dataFim;
+    }
+    
     public Cliente getCliente() {
         return cliente;
     }
+    
+    public Sala getSala() {
+        return sala;
+    }
+    
+    public double getCustoTotal() {
+        return custoTotal;
+    }
+
+    public double getReembolso() {
+        return reembolso;
+    }
+
 
     //Funçoes auxilires da classe
     private long calcularDuracao(){

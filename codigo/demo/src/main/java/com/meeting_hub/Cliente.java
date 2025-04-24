@@ -9,5 +9,9 @@ public class Cliente {
         return nome;
     }
 
+    public Long getId(){
+        return id;
+    }
+
     // Construtor, getters e setters, se necessário
 }
