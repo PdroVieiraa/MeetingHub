@@ -2,7 +2,7 @@ package com.meeting_hub;
 
 import com.meeting_hub.Salas.Premium;
 import com.meeting_hub.Reserva;
-import com.meeting_hub.Cliente;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

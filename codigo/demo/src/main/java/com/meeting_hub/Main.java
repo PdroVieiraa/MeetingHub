@@ -14,12 +14,15 @@ import java.util.*;
 import javax.print.attribute.standard.CopiesSupported;
 
 
+
 public class Main{
-    static List<Sala> salas = new ArrayList<>();
+
+    private static List<Sala> salas = SalaManager.carregarSalas(); //Carrega as salas salvas no txt.
     static List<Reserva> reservas = new ArrayList<>();
     static List<Cliente> clientes = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     static int reservaId = 1;
+
 
     public static void main(String[] args){
         int opcao;
@@ -72,11 +75,11 @@ public class Main{
         if(novaSala != null) {
             salas.add(novaSala);
             System.out.println("Sala cadastrada com codigo: " + novoCodigo);
-            System.out.println("------------------------");
+            SalaManager.salvarSalas(salas);
         } else {
             System.out.println("Tipo de sala inválido.");
-            System.out.println("------------------------");
         }
+        System.out.println("------------------------");
     }
 
     private static void listarSalas(){
